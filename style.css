@@ -18,8 +18,8 @@ body {
     width: 200px;
     height: 200px;
     border-radius: 50%; /* Ez teszi kör alakúvá */
-    border: 5px solid #61dafb;
-    box-shadow: 0 0 20px rgba(97, 218, 251, 0.7); /* Egy kis ragyogás */
+    border: 5px solid orange; /* Narancssárga szegély */
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.7); /* Egy kis ragyogás */
     margin-bottom: 20px;
 }
 
