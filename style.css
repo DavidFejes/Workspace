@@ -1,0 +1,28 @@
+body {
+    background-color: #282c34;
+    color: #ffffff;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+.container {
+    padding: 40px;
+}
+
+.profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Ez teszi kör alakúvá */
+    border: 5px solid #61dafb;
+    box-shadow: 0 0 20px rgba(97, 218, 251, 0.7); /* Egy kis ragyogás */
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #61dafb;
+}
