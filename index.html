@@ -3,48 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Az én király oldalam!</title>
+    <title>Matrix Eső</title>
     <style>
         body {
-            background-color: #282c34;
-            color: #ffffff;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            text-align: center;
+            overflow: hidden;
+            background-color: #000;
         }
-        .container {
-            padding: 40px;
-            border-radius: 15px;
-            background-color: #20232a;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            border: 1px solid #61dafb;
-        }
-        h1 {
-            color: #61dafb;
-            font-size: 3em;
-            text-shadow: 0 0 10px #61dafb;
-        }
-        p {
-            font-size: 1.2em;
-        }
-        .friendship-power {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #abb2bf;
+        canvas {
+            display: block;
         }
     </style>
 </head>
 <body>
-
-    <div class="container">
-        <h1>Helló, Világ!</h1>
-        <p>Ez az én oldalam. Git-tel és baráti erővel készült.</p>
-        <p class="friendship-power">Powered by Friendship™</p>
-    </div>
-
+    <canvas id="matrixCanvas"></canvas>
+    <script src="script.js"></script>
 </body>
 </html>
