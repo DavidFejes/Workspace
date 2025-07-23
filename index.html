@@ -15,21 +15,38 @@
         <!-- BAL OLDALI SÁV (FÁJLKEZELŐ) -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <span class="file-icon folder"></span> WORKSPACE
-            </div>
+    <!-- Betettük egy linkbe és adtunk neki egy egyedi azonosítót (ID) -->
+    <a href="#" id="workspace-link">WORKSPACE</a>
+    </div>
             <nav class="file-explorer">
                 <ul>
-                    <!-- Minden 'a' tag egy 'fájl', amire kattintani lehet -->
-                    <li><a href="#" class="file-link active" data-target="about"><span class="file-icon md"></span>rolam.md</a></li>
-                    <li><a href="#" class="file-link" data-target="projects"><span class="file-icon js"></span>projektek.js</a></li>
-                    <li><a href="#" class="file-link" data-target="contact"><span class="file-icon json"></span>elerhetoseg.json</a></li>
+                    <li>
+                        <details open>
+                            <summary class="folder-summary">
+                                SZEMÉLYES
+                            </summary>
+                            <ul>
+                                <li><a href="#" class="file-link active" data-target="about"><span class="file-icon md"></span>rolam.md</a></li>
+                                <li><a href="#" class="file-link" data-target="contact"><span class="file-icon json"></span>elerhetoseg.json</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary class="folder-summary">
+                                PROJEKTEK
+                            </summary>
+                            <ul>
+                                <li><a href="#" class="file-link" data-target="projects"><span class="file-icon js"></span>projektek.js</a></li>
+                            </ul>
+                        </details>
+                    </li>
                 </ul>
             </nav>
         </aside>
 
         <!-- FŐ TARTALMI RÉSZ (KÓDSZERKESZTŐ) -->
         <main class="main-content">
-            <!-- Az 'content-pane'-ek a szerkesztőben megnyitott 'fájlok' -->
             <!-- Rólam Szekció -->
             <div id="about" class="content-pane active">
                 <h2 class="code-function">// bemutatkozas()</h2>
@@ -43,12 +60,12 @@
                 <div class="project-card">
                     <h3>To-Do Lista App</h3>
                     <p class="code-comment">// Státusz: Stabil. Funkció: Felhasználói input feldolgozása.</p>
-                    <a href="#">launch_app()</a>
+                    <a href="ide kene URL" target="_blank" rel="noopener noreferrer">launch_app()</a>
                 </div>
                 <div class="project-card">
                     <h3>Ez az IDE portfólió</h3>
                     <p class="code-comment">// Státusz: Folyamatos fejlesztés alatt. Funkció: Dinamikus tartalomkezelés.</p>
-                    <a href="#">view_source()</a>
+                    <a href="ide kene URL" target="_blank" rel="noopener noreferrer">view_source()</a>
                 </div>
             </div>
 
@@ -57,7 +74,7 @@
                 <h2 class="code-function">// kapcsolat_export()</h2>
                 <pre class="code-block"><code>
 {
-  "github":   <a href="https://github.com/felhasznaloneved" target="_blank" class="code-string">"https://github.com/felhasznaloneved"</a>,
+  "github":   <a href="ide kene URL" target="_blank" rel="noopener noreferrer" class="code-string">"https://github.com/a-te-github-felhasznaloneved"</a>,
   "email":    <a href="mailto:email@example.com" class="code-string">"email@example.com"</a>,
   "linkedin": <span class="code-string">"Profil link (hamarosan)"</span>
 }

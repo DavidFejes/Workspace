@@ -23,4 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById(targetId).classList.add('active');
         });
     });
+
+// 1. Megkeressük az új WORKSPACE linket és az eredeti "rolam.md" linket
+    const workspaceLink = document.getElementById('workspace-link');
+    const aboutMeLink = document.querySelector('a[data-target="about"]');
+
+    // 2. Eseményfigyelőt teszünk a WORKSPACE linkre
+    workspaceLink.addEventListener('click', (event) => {
+        event.preventDefault(); // Megakadályozzuk, hogy a '#' miatt ugorjon az oldal
+
+        // 3. A varázslat: Programozottan "rákattintunk" a 'rolam.md' linkre
+        // Ez lefuttatja ugyanazt a kódot, mintha a felhasználó tette volna
+        if (aboutMeLink) {
+            aboutMeLink.click();
+        }
+    });
+
 });
