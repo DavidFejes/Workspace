@@ -1,12 +1,26 @@
-// A dokumentum betöltése után lefutó kód
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', () => {
 
-    // AOS (Animate on Scroll) könyvtár inicializálása
-    // Ez felelős az elemek "beúszásáért" görgetés közben
-    AOS.init({
-        duration: 800, // Animáció időtartama (ms)
-        once: true,    // Minden animáció csak egyszer fusson le
-        offset: 50,    // Eltolás az elem megjelenése előtt (px)
+    // Megkeressük az összes "fájl" linket és tartalmi panelt
+    const fileLinks = document.querySelectorAll('.file-link');
+    const contentPanes = document.querySelectorAll('.content-pane');
+
+    // Végigmegyünk minden egyes fájl linken
+    fileLinks.forEach(link => {
+
+        // Minden linkre teszünk egy eseményfigyelőt
+        link.addEventListener('click', (event) => {
+            event.preventDefault(); // Megakadályozza az oldal ugrását
+
+            // A 'data-target' attribútumból kiolvassuk, melyik tartalmat kell mutatni
+            const targetId = link.getAttribute('data-target');
+            
+            // ELREJTÉS: Először mindenkiről levesszük az 'active' osztályt
+            fileLinks.forEach(otherLink => otherLink.classList.remove('active'));
+            contentPanes.forEach(pane => pane.classList.remove('active'));
+
+            // MEGJELENÍTÉS: A kattintott linkre és a hozzá tartozó panelre rátesszük az 'active' osztályt
+            link.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+        });
     });
-
 });
