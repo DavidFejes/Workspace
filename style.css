@@ -1,28 +1,137 @@
+/* MONOKAI PRO TÉMA */
+:root {
+    --bg-main: #2D2A2E;
+    --bg-sidebar: #242225;
+    --text-primary: #FCFCFA;
+    --yellow: #FFD866;
+    --pink: #FF6188;
+    --cyan: #78DCE8;
+    --green: #A9DC76;
+    --grey: #939293;
+    --border-color: #413F42;
+    --font-code: 'Fira Code', 'Courier New', monospace;
+}
+
 body {
-    background-color: #282c34;
-    color: #ffffff;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-code);
     margin: 0;
-    text-align: center;
 }
 
-.container {
-    padding: 40px;
+.ide-container {
+    display: flex;
+    height: calc(100vh - 25px); /* Teljes magasság mínusz a státuszsor */
 }
 
-.profile-picture {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%; /* Ez teszi kör alakúvá */
-    border: 5px solid orange; /* Narancssárga szegély */
-    box-shadow: 0 0 20px rgba(255, 165, 0, 0.7); /* Egy kis ragyogás */
+/* --- SIDEBAR (FÁJLKEZELŐ) --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 10px;
+}
+.sidebar-header {
+    font-weight: 600;
     margin-bottom: 20px;
 }
-
-h1 {
-    color:orange;
+.file-explorer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
+.file-link {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--grey);
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+.file-link:hover {
+    background-color: #383539;
+    color: var(--text-primary);
+}
+.file-link.active {
+    background-color: #49454a;
+    color: #fff;
+}
+
+/* Fájl ikonok (CSS-ből) */
+.file-icon { display: inline-block; width: 16px; height: 16px; margin-right: 8px; }
+.file-icon.md::before { content: 'M'; color: var(--cyan); }
+.file-icon.js::before { content: 'J'; color: var(--yellow); }
+.file-icon.json::before { content: '{'; color: var(--green); }
+
+/* --- FŐ TARTALMI RÉSZ (SZERKESZTŐ) --- */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+.content-pane {
+    display: none; /* Alapból elrejtünk mindent */
+}
+.content-pane.active {
+    display: block; /* A JS teszi láthatóvá az aktív panelt */
+}
+/* A "kód" stílusok a Monokai színeit használják */
+.code-function { color: var(--yellow); }
+.code-comment { color: var(--grey); font-style: italic; }
+.code-string { color: var(--pink); }
+.code-const { color: var(--cyan); }
+.code-block { background-color: #242225; padding: 15px; border-radius: 4px; white-space: pre-wrap;}
+.code-block a { text-decoration: underline; }
+.project-card { border-left: 3px solid var(--yellow); padding-left: 15px; margin-bottom: 20px;}
+.project-card a { color: var(--cyan); }
+
+/* --- STÁTUSZSOR --- */
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    background-color: var(--bg-sidebar);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 0.8em;
+    color: var(--grey);
+}
+.status-left span, .status-right span { margin: 0 10px; }```
+
+#### 3. Lépés: A Működő IDE Agya (`script.js`)
+
+Ez a JavaScript felelős azért, hogy a "fájlokra" kattintva a megfelelő tartalom jelenjen meg a szerkesztőben.
+
+Cseréld le a `script.js` teljes tartalmát erre:
+
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Megkeressük az összes "fájl" linket és tartalmi panelt
+    const fileLinks = document.querySelectorAll('.file-link');
+    const contentPanes = document.querySelectorAll('.content-pane');
+
+    // Végigmegyünk minden egyes fájl linken
+    fileLinks.forEach(link => {
+
+        // Minden linkre teszünk egy eseményfigyelőt
+        link.addEventListener('click', (event) => {
+            event.preventDefault(); // Megakadályozza az oldal ugrását
+
+            // A 'data-target' attribútumból kiolvassuk, melyik tartalmat kell mutatni
+            const targetId = link.getAttribute('data-target');
+            
+            // ELREJTÉS: Először mindenkiről levesszük az 'active' osztályt
+            fileLinks.forEach(otherLink => otherLink.classList.remove('active'));
+            contentPanes.forEach(pane => pane.classList.remove('active'));
+
+            // MEGJELENÍTÉS: A kattintott linkre és a hozzá tartozó panelre rátesszük az 'active' osztályt
+            link.classList.add('active');
+            document.getElementById(targetId).classList.add('active');
+        });
+    });
+});

@@ -3,19 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Az én oldalam</title>
+    <title>A Neved [WORKSPACE]</title>
+    <!-- Google Fonts a profi kódoló fontért -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="ide-container">
+        <!-- BAL OLDALI SÁV (FÁJLKEZELŐ) -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <span class="file-icon folder"></span> WORKSPACE
+            </div>
+            <nav class="file-explorer">
+                <ul>
+                    <!-- Minden 'a' tag egy 'fájl', amire kattintani lehet -->
+                    <li><a href="#" class="file-link active" data-target="about"><span class="file-icon md"></span>rolam.md</a></li>
+                    <li><a href="#" class="file-link" data-target="projects"><span class="file-icon js"></span>projektek.js</a></li>
+                    <li><a href="#" class="file-link" data-target="contact"><span class="file-icon json"></span>elerhetoseg.json</a></li>
+                </ul>
+            </nav>
+        </aside>
 
-    <div class="container">
-        <!-- Itt jelenik meg a képünk -->
-        <img src="Orban.jpg" alt="Én vagyok az Orban" class="profile-picture">
+        <!-- FŐ TARTALMI RÉSZ (KÓDSZERKESZTŐ) -->
+        <main class="main-content">
+            <!-- Az 'content-pane'-ek a szerkesztőben megnyitott 'fájlok' -->
+            <!-- Rólam Szekció -->
+            <div id="about" class="content-pane active">
+                <h2 class="code-function">// bemutatkozas()</h2>
+                <p class="code-comment">/*<br> * Itt a hely, hogy bemutasd a fő funkcióidat.<br> * Milyen nyelveket 'beszélsz', milyen technológiák érdekelnek.<br> */</p>
+                <p><span class="code-const">const</span> cel = <span class="code-string">"Olyan dolgok építése, amik számítanak."</span>;</p>
+            </div>
 
-        <h1>
-            <color:orange>Hajrá fidesz </color:orange>
-            </h1>
+            <!-- Projektek Szekció -->
+            <div id="projects" class="content-pane">
+                <h2 class="code-function">// projektek_init()</h2>
+                <div class="project-card">
+                    <h3>To-Do Lista App</h3>
+                    <p class="code-comment">// Státusz: Stabil. Funkció: Felhasználói input feldolgozása.</p>
+                    <a href="#">launch_app()</a>
+                </div>
+                <div class="project-card">
+                    <h3>Ez az IDE portfólió</h3>
+                    <p class="code-comment">// Státusz: Folyamatos fejlesztés alatt. Funkció: Dinamikus tartalomkezelés.</p>
+                    <a href="#">view_source()</a>
+                </div>
+            </div>
+
+            <!-- Elérhetőség Szekció -->
+            <div id="contact" class="content-pane">
+                <h2 class="code-function">// kapcsolat_export()</h2>
+                <pre class="code-block"><code>
+{
+  "github":   <a href="https://github.com/felhasznaloneved" target="_blank" class="code-string">"https://github.com/felhasznaloneved"</a>,
+  "email":    <a href="mailto:email@example.com" class="code-string">"email@example.com"</a>,
+  "linkedin": <span class="code-string">"Profil link (hamarosan)"</span>
+}
+                </code></pre>
+            </div>
+        </main>
     </div>
 
+    <!-- ALSÓ STÁTUSZSOR -->
+    <footer class="status-bar">
+        <div class="status-left">
+            <span>BRANCH: main</span>
+            <span>UTF-8</span>
+        </div>
+        <div class="status-right">
+            <span>Ln 1, Col 1</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
