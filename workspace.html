@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[WORKSPACE]</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="workspace.css">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="WORKSPACE">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="workspace3.png">
+    <link rel="mask-icon" href="workspace3.png" color="#1A1A1A">
+    <link rel="icon" type="image/png" href="workspacewbg.png">
+</head>
+<body>
+    <div class="ide-container">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="#" id="workspace-link">WORKSPACE</a>
+            </div>
+            <nav class="file-explorer">
+                <ul>
+                    <li>
+                        <details open>
+                            <summary class="folder-summary">SZEMÉLYES</summary>
+                            <ul>
+                                <li><a href="#" class="file-link active" data-target="about"><span class="file-icon md"></span>rolam.md</a></li>
+                                <li><a href="#" class="file-link" data-target="contact"><span class="file-icon json"></span>elerhetoseg.json</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li>
+                        <details>
+                            <summary class="folder-summary">PROJEKTEK</summary>
+                            <ul>
+                                <li><a href="#" class="file-link" data-target="wakeywakey"><span class="file-icon js"></span>remote_start.js</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#" class="file-link" data-target="weather"><span class="file-icon js"></span>weather.js</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#" class="file-link" data-target="todo"><span class="file-icon jstodo"></span>todo.js</a></li>
+                            </ul>
+                             <ul>
+                                <li><a href="#" class="file-link" data-target="kaki"><span class="file-icon jsbrown"></span>kaki.js</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#" class="file-link" data-target="guns"><span class="file-icon jsred"></span>guns.js</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                     <li>
+                        <details>
+                            <summary class="folder-summary">TOOLS</summary>
+                            <ul>
+                                <li><a href="#" class="file-link" data-target="editor"><span class="file-icon hash"></span>editor.cpp</a></li>
+                                <li><a href="#" class="file-link" data-target="ai"><span class="file-icon hash"></span>ai.cpp</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- Rólam Szekció -->
+            <div id="about" class="content-pane active" data-theme-color="var(--cyan)">
+                <h2 class="code-function">// bemutatkozas()</h2>
+                <p class="code-comment">Dávid vagyok, 16 éves. HMG Matek-Fizika tagozatra járok. <br><br>Szeretem szétszedni a világot, hogy megnézzem, hogyan működik - aztán összerakom újra, lehetőleg<br> egy kicsit jobban (vagy legalább érdekesebben). Kíváncsi vagyok, néha túl sokat kérdezek, de ez<br> eddig még mindig bejött. Imádom, ha valami működik, amit én bütyköltem össze, legyen az egy játék,<br> egy kód vagy csak egy jó ötlet. Keverem a logikát a kreativitással, néha még sporttal is,<br> de azért maradjon idő a hülyülésre is.</p>
+                <p><span class="code-const">const</span> cel = <span class="code-string">"Olyan dolgok építése, amik menők."</span>;</p>
+            </div>
+
+            <!-- WakeyWakey Projekt -->
+            <div id="wakeywakey" class="content-pane" data-theme-color="var(--yellow)">
+                <h2 class="code-function">// remote_start()</h2>
+                <div class="project-card">
+                    <h3>PC Távoli Indítása</h3>
+                    <p class="code-comment">// A számítógép bekapcsolása egy ESP-32 mikrovezérlő segítségével, WiFi hálózaton keresztül.<br>Nem elérhető ha a pc be van kapcsolva.</p>
+                    <a href="http://fejesworx.duckdns.org/" target="_blank" rel="noopener noreferrer">launch_app()</a>
+                </div>
+            </div>
+            <!-- Weather -->
+            <div id="weather" class="content-pane" data-theme-color="var(--yellow)">
+                <h2 class="code-function">// szentes_időjárás()</h2>
+                <div class="project-card">
+                    <h3>Jelenlegi Időjárás</h3>
+                    <p class="code-comment">// Nem csak mutatja az időt – hangulatot is ad hozzá. Egyetlen pillantás, és már tudod, milyen nap vár rád. </p>
+                    <a href="https://davidfejes.github.io/Weather/" target="_blank" rel="noopener noreferrer">launch_app()</a>
+                </div>
+            </div>
+            <!-- Todo -->
+            <div id="todo" class="content-pane" data-theme-color="var(--todo)">
+                <h2 class="code-function">// to-do_list()</h2>
+                <div class="project-card">
+                    <h3>Things To Do</h3>
+                    <p class="code-comment">// Teendők kezelése webes felületen keresztül.</p>
+                    <a href="/todo/" target="_blank" rel="noopener noreferrer">launch_app()</a>
+                </div>
+            </div>
+            <!-- Kaki -->
+            <div id="kaki" class="content-pane" data-theme-color="var(--brown)">
+                <h2 class="code-function">// kaki_napló()</h2>
+                <div class="project-card">
+                    <h3>Mert Miért Ne?</h3>
+                    <p class="code-comment">// Mellékhelyiség használatának naplózására készített weboldal, firebase adatbázissal és google authentication-nel.</p>
+                    <a href="https://davidfejes.github.io/Kaki/" target="_blank" rel="noopener noreferrer">launch_app()</a>
+                </div>
+            </div>
+
+            <!-- Guns -->
+            <div id="guns" class="content-pane" data-theme-color="var(--red)">
+                <h2 class="code-function">// guns()</h2>
+                <div class="project-card">
+                    <h3>Menő fegyverek</h3>
+                    <p class="code-comment">// Fegyver animációk gif-ekkel legtöbb kölcsönvéve, a kez az en találmányom és fantáziám szülöttje</p>
+                    <a href="https://davidfejes.github.io/Guns/" target="_blank" rel="noopener noreferrer">launch_app()</a>
+                </div>
+            </div>
+
+            <!-- Editor Eszközök -->
+            <div id="editor" class="content-pane" data-theme-color="var(--pink)">
+                <h2 class="code-function">// coding_environment()</h2>
+                <div class="project-card">
+                    <h3>Visual Studio Code</h3>
+                    <p class="code-comment">// A digitális szerszámosláda. Letisztult, villámgyors, és mindig kéznél van, akár egy apró<br> ötletből, akár egy teljes projektből kell csodát varázsolni.</p>
+                    <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">website()</a>
+                </div>
+            </div>
+
+            <!-- AI Eszközök -->
+            <div id="ai" class="content-pane" data-theme-color="var(--pink)">
+                <h2 class="code-function">// ai_assisted_development()</h2>
+                <div class="project-card">
+                    <h3>ChatGPT</h3>
+                    <p class="code-comment">// A svájci bicska. Gyors, megbízható és a legtöbb problémára azonnal ad valami használhatót.</p>
+                    <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">website()</a>
+                </div>
+                <div class="project-card">
+                    <h3>Gemini</h3>
+                    <p class="code-comment">// A kreatív partner. Különösen jó, ha logikai felépítésre vagy kóddal kapcsolatos ötletekre van szükségem.</p>
+                    <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">website()</a>
+                </div>
+            </div>
+           
+            <!-- Elérhetőség Szekció -->
+            <div id="contact" class="content-pane" data-theme-color="var(--green)">
+                <h2 class="code-function">// kapcsolat_export()</h2>
+                <pre class="code-block"><code>
+{
+  "github":   <a href="https://github.com/DavidFejes/" target="_blank" rel="noopener noreferrer" class="code-string">"DavidFejes"</a>,
+  "email":    <a href="mailto:david.fejes.work@gmail.com" class="code-string">"david.fejes.work@gmail.com"</a>,
+  "instagram": <a href="https://www.instagram.com/fejes_david09/" target="_blank" rel="noopener noreferrer" class="code-string">"@fejes_david09"</a>
+}
+                </code></pre>
+            </div>
+        </main>
+    </div>
+
+    <!-- STATUS BAR -->
+    <footer class="status-bar">
+        <div class="status-left">
+            <span>BRANCH: main</span>
+            <span>UTF-8</span>
+        </div>
+        <div class="status-right">
+            <span>Ln 1, Col 1</span>
+        </div>
+    </footer>
+
+    <script src="workspace.js"></script>
+</body>
+</html>

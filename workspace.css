@@ -1,0 +1,313 @@
+/* MONOKAI PRO TÉMA */
+:root {
+    --bg-main: #18171c;
+    --bg-sidebar: #111014;
+    --text-primary: #FCFCFA;
+    --yellow: #FFD866;
+    --pink: #FF6188;
+    --cyan: #78DCE8;
+    --brown: #9C661F;
+    --green: #A9DC76;
+    --todo: #238177;
+    --grey: #939293;
+    --red: #cf1736;
+    --border-color: #413F42;
+    --font-code: 'Fira Code', 'Courier New', monospace;
+}
+
+/* BOX-SIZING RESET */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-code);
+    margin: 0;
+    min-width: 0;
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.ide-container {
+    display: flex;
+    height: calc(100vh - 25px);
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border-color);
+    padding: 10px;
+    overflow-y: auto;
+}
+.sidebar-header {
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+.sidebar-header a {
+    text-decoration: none;
+    color: inherit;
+}
+.file-explorer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+.file-explorer details ul {
+    padding-left: 20px;
+}
+.folder-summary {
+    cursor: pointer;
+    padding: 5px;
+}
+.folder-summary:hover {
+    background-color: #383539;
+}
+.file-link {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--grey);
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+.file-link:hover {
+    background-color: #383539;
+    color: var(--text-primary);
+}
+.file-link.active {
+    background-color: #49454a;
+    color: #fff;
+}
+.file-icon { 
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+.file-icon.md { color: var(--cyan); }
+.file-icon.js { color: var(--yellow); }
+.file-icon.jsbrown { color: var(--brown); }
+.file-icon.jstodo { color: var(--todo); }
+.file-icon.jsred { color: var(--red); }
+.file-icon.json { color: var(--green); }
+.file-icon.hash { color: var(--pink); }
+.file-icon.md::before { content: 'M'; }
+.file-icon.js::before { content: 'J'; }
+.file-icon.jstodo::before { content: 'J'; }
+.file-icon.jsbrown::before { content: 'J'; text-shadow: --1px 0 var(--brown), 1px 0 var(--brown), 0 -1px var(--brown), 0 1px var(--brown);}
+.file-icon.jsred::before { content: 'J'; text-shadow: --1px 0 var(--red), 1px 0 var(--red), 0 -1px var(--red), 0 1px var(--red);}
+.file-icon.json::before { content: '{'; }
+.file-icon.hash::before { content: '#'; }
+
+/* --- MAIN CONTENT --- */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    --current-theme-color: var(--text-primary);
+}
+.content-pane {
+    display: none;
+}
+.content-pane.active {
+    display: block;
+}
+/* ===== Egységesített és Finomhangolt Dinamikus Téma ===== */
+
+/* ... a többi szabály változatlan ... */
+
+/* A főcím (.code-function) veszi fel a dinamikus színt */
+.main-content .code-function {
+    color: var(--current-theme-color);
+}
+
+/* A dinamikus színt megkapja: A projekt kártya, a bemutatkozó kódblokk, ÉS az elérhetőségi kódblokk kerete is! */
+.main-content .project-card,
+.main-content .about-code,
+.main-content .code-block {
+    border-left: 3px solid var(--current-theme-color);
+    padding-left: 15px; /* Adunk nekik egy kis belső teret, hogy ne tapadjon rá a szöveg */
+}
+.code-comment {
+    color: var(--grey);
+    font-style: italic;
+}
+.code-string, .project-card a {
+    color: var(--pink);
+    text-decoration: none;
+}
+.project-card a:hover {
+    text-decoration: underline;
+}
+.code-const {
+    color: var(--cyan);
+}
+.code-block {
+    background-color: var(--bg-sidebar);
+    padding: 15px;
+    border-radius: 4px;
+    white-space: pre-wrap;
+}
+.code-block a {
+    text-decoration: underline;
+    color: inherit;
+}
+
+
+/* --- STATUS BAR --- */
+.status-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    background-color: var(--bg-sidebar);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 0.8em;
+    color: var(--grey);
+}
+.status-left span, .status-right span {
+    margin: 0 10px;
+}
+
+#contact.active .code-block a {
+    color: var(--pink); /* Ez a mi témánk pirosas-rózsaszín színe */
+}
+
+@media (max-width: 900px) {
+  .ide-container {
+    flex-direction: column;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80vw;
+    max-width: 340px;
+    height: 100vh;
+    z-index: 1001;
+    background-color: var(--bg-sidebar);
+    box-shadow: 2px 0 24px #000a;
+    transition: transform 0.2s cubic-bezier(.4,2,.6,1);
+    transform: translateX(0);
+  }
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.32);
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.25s cubic-bezier(.4,2,.6,1);
+    display: none;
+  }
+  body:not(.sidebar-hidden) .sidebar-overlay {
+    display: block;
+    opacity: 1;
+  }
+  body.sidebar-hidden .sidebar-overlay {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .sidebar {
+    transition: transform 0.32s cubic-bezier(.4,2,.6,1), opacity 0.25s cubic-bezier(.4,2,.6,1);
+    transform: translateX(0);
+    opacity: 1;
+  }
+  body.sidebar-hidden .sidebar {
+    transform: translateX(-110%);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  .sidebar-toggle-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 48px;
+    background: var(--bg-sidebar);
+    border-bottom: 1px solid var(--border-color);
+    z-index: 1100;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 2px 12px #0008;
+  }
+  .sidebar-toggle-btn {
+    position: static;
+    margin-left: 12px;
+    margin-top: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 8px;
+    height: 32px;
+    padding: 0 18px;
+    font-size: 1.1em;
+    background: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    font-family: var(--font-code);
+    cursor: pointer;
+    display: block;
+  }
+  body.sidebar-hidden .sidebar {
+    display: none !important;
+  }
+  body.sidebar-hidden .sidebar-toggle-bar {
+    display: flex;
+  }
+  body:not(.sidebar-hidden) .sidebar-toggle-bar {
+    display: none;
+  }
+  .main-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .main-content {
+    margin-top: 48px;
+  }
+  body:not(.sidebar-hidden) .main-content {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    font-size: 0.95em;
+    padding: 6px 0;
+  }
+  .sidebar-header {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  .main-content {
+    padding: 8px 2vw;
+    font-size: 0.98em;
+  }
+  .file-link {
+    padding: 4px 6px;
+  }
+  .code-block {
+    padding: 8px;
+    font-size: 0.95em;
+  }
+}
