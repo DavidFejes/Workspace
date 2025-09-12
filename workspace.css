@@ -11,6 +11,8 @@
     --todo: #238177;
     --grey: #939293;
     --red: #cf1736;
+    --purple: #6729a1;
+    --weather: #3b6c8d;
     --border-color: #413F42;
     --font-code: 'Fira Code', 'Courier New', monospace;
 }
@@ -102,6 +104,8 @@ body {
 .file-icon.jsbrown { color: var(--brown); }
 .file-icon.jstodo { color: var(--todo); }
 .file-icon.jsred { color: var(--red); }
+.file-icon.jsweather { color: var(--weather); }
+.file-icon.jspurple { color: var(--purple); }
 .file-icon.json { color: var(--green); }
 .file-icon.hash { color: var(--pink); }
 .file-icon.md::before { content: 'M'; }
@@ -109,6 +113,8 @@ body {
 .file-icon.jstodo::before { content: 'J'; }
 .file-icon.jsbrown::before { content: 'J'; text-shadow: --1px 0 var(--brown), 1px 0 var(--brown), 0 -1px var(--brown), 0 1px var(--brown);}
 .file-icon.jsred::before { content: 'J'; text-shadow: --1px 0 var(--red), 1px 0 var(--red), 0 -1px var(--red), 0 1px var(--red);}
+.file-icon.jspurple::before { content: 'J'; text-shadow: --1px 0 var(--purple), 1px 0 var(--purple), 0 -1px var(--purple), 0 1px var(--purple);}
+.file-icon.jsweather::before { content: 'J'; text-shadow: --1px 0 var(--weather), 1px 0 var(--weather), 0 -1px var(--weather), 0 1px var(--weather);}
 .file-icon.json::before { content: '{'; }
 .file-icon.hash::before { content: '#'; }
 
